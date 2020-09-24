@@ -1,0 +1,67 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="project.ZTrackJobsEmployee.controller.ViewJob"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="View Job Details" navButtonPress="_onNavBack" showNavButton="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Manage Jobs" icon="sap-icon://legend" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<f:SimpleForm id="jobform" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+						title="Job Details" labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+						<f:content>
+							<core:Title text=""/>
+							<Text id="txtJobId" visible="false"/>
+							<Label text="Job Title"/>
+							<Text id="txtJobTitle"/>
+							<Label text="Company"/>
+							<Text id="txtCompanyName"/>
+							<Label text="Plant"/>
+							<Text id="txtPlantName"/>
+							<Label text="Storage Location"/>
+							<Text id="txtStorageLocationName"/>
+							<Label text="Machine Id"/>
+							<Text id="txtMachineId"/>
+							<Label text="Machine Name"/>
+							<Text id="txtMachineName"/>
+							<Label text="Status"/>
+							<MessageStrip id="txtStatus" class="sapUiMediumMarginBottom"></MessageStrip>
+							<Label text="JobInstructions"/>
+							<Text id="txtJobInstructions"/>
+							<core:Title text=""/>
+							<Label text="Date"/>
+							<Text id="txtAssignedDate"/>
+							<Label text="Start Time"/>
+							<Text id="txtFromTime"/>
+							<Label text="End Time"/>
+							<Text id="txtToTime"/>
+							<!--<Text id="txtLat" visible="false"/>
+							<Text id="txtLng" visible="false"/>-->
+						</f:content>
+						<f:layoutData>
+							<FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+						</f:layoutData>
+					</f:SimpleForm>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button id="btnStartJob" text="Start Job" visible="true" icon="sap-icon://fob-watch" press="_StartJob" type="Accept" tooltip="Start Job"/>
+							<Button id="btnEndJob" text="End Job" visible="false" icon="sap-icon://fob-watch" press="_EndJob" type="Reject" tooltip="End Job"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

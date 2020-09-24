@@ -1,0 +1,66 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="project.ZTrackJobsEmployee.controller.ManageJobs" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout" xmlns:fb="sap.ui.comp.filterbar">
+	<App>
+		<pages>
+			<Page title="Manage Jobs" navButtonPress="_onNavBack" showNavButton="true">
+				<content>
+					<tnt:ToolHeader>
+						<Button text="Dashboard" icon="sap-icon://bbyd-dashboard" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+						<Button text="Manage Jobs" icon="sap-icon://legend" type="Transparent" press="_onPressMenu">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low"/>
+							</layoutData>
+						</Button>
+					</tnt:ToolHeader>
+					<Table id="tblJobs" inset="false" visible="true" class="sapUiResponsiveMargin" growing="true" growingScrollToLoad="true" width="auto"
+						growingThreshold="10" items="{path:'/Jobs'}" noDataText="{i18n>nodatafound}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="List of Jobs" level="H2"/>
+								<ToolbarSpacer/>
+								<SearchField liveChange="onSearch" width="50%"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column demandPopin="true" width="10%">
+								<Text text="Job Id" />
+							</Column>
+							<Column demandPopin="true">
+								<Text text="Job Title"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" minScreenWidth="Tablet">
+								<Text text="Machine Id"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" minScreenWidth="Tablet">
+								<Text text="Assigned Date"/>
+							</Column>
+							<Column demandPopin="true" hAlign="End" minScreenWidth="Tablet">
+								<Text text="Assigned Time"/>
+							</Column>
+							<Column demandPopin="true" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Navigation" press="_onViewInfo">
+								<cells>
+									<Text text="{JobId}"/>
+									<Text text="{JobTitle}"/>
+									<Text text="{MachineId}"/>
+									<Text text="From: {AssignedDate}"/>
+									<Text text="From: {FromTime} To: {ToTime}"/>
+									<MessageStrip type="{Type}" text="{Status}" class="sapUiMediumMarginBottom"></MessageStrip>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
